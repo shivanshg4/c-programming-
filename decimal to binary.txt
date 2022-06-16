@@ -1,0 +1,40 @@
+/*41. Write a program in C to convert a decimal number into binary without using an array.
+Test Data :
+Input a decimal number: 25
+Binary number equivalent to said decimal number is: 0000000000000000000000000001 1001
+Input a decimal number: 105
+Binary number equivalent to said decimal number is: 0000000000000000000000000110
+1001
+Input a decimal number: 1105
+Binary number equivalent to said decimal number is: 0000000000000000000001000101
+0001*/
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int n,bi=0,ans=0,r,no=0;
+    printf("Input a decimal number : ");
+    scanf("%d",&n);
+    //for binary
+    for(int i=n; i>0; i=i/2)
+    {
+        r=i%2;
+       bi=bi*10+r;
+    }
+    //for reverse
+    for(int i=bi; i>0; i=i/10)
+    {
+        r=i%10;
+        ans=ans*10+r;
+        no=no+1;
+    }
+    printf("Binary number equivalent to said decimal number is : ");
+    //for zeros
+    for(int k=1; k<32-no; k++)
+    {
+        printf("0");
+    }
+    printf("%d",ans);
+    getch();
+    return 0;
+}
